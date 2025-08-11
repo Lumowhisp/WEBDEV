@@ -173,3 +173,27 @@ function cartCalc() {
     ).innerHTML = `Cost of Item:${amz.price}`;
   }
 }
+
+/*todo */
+const todolist = []; // use one name
+
+function todo() {
+  const inputElement = document.querySelector(".js-inp-todo");
+  const listitem = inputElement.value;
+  inputElement.value = "";
+  todolist.push(listitem);
+  console.log(todolist);
+  rendertodo(); // call render to update UI
+}
+
+let todolistHTML = ""; // declare variable properly
+
+function rendertodo() {
+  todolistHTML = ""; // reset before loop
+  for (let i = 0; i < todolist.length; i++) {
+    const result = todolist[i];
+    const html = `<p>${result}</p>`;
+    todolistHTML += html;
+  }
+  document.querySelector(".js-todo-output").innerHTML = todolistHTML;
+}
